@@ -5,7 +5,7 @@ import { Autoplay } from "swiper/modules";
 import 'swiper/css';
 
 import CategoriesBar from '../Components/CategoriesBar'
-
+import FeaturedItem from "../Components/FeaturedItem";
 
 import { collection, getDocs } from "firebase/firestore"; 
 import { db } from "../firebase.config"
@@ -53,7 +53,7 @@ export default function Homepage() {
   return (
     <>
     <div className="flex flex-col z-0 relative">
-      <div className="logo-section flex flex-row m-5 gap-2 justify-center">
+      <div className="logo-section flex flex-row m-5 gap-2 justify-center ">
       <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="#27a05b"
@@ -155,7 +155,7 @@ export default function Homepage() {
       </div>
 
     {/* screen overlay */}
-    <div className={hamburgMenu? "main-menu-after":"main-menu-before"} >
+    <div className={hamburgMenu? "main-menu-after ms-2":"main-menu-before ms-2"} >
 
       {/* Navigation bar on top*/}
       <div className="home-nav flex flex-row justify-between items-center m-5 font-[poppins]">
@@ -175,7 +175,7 @@ export default function Homepage() {
 
 
     {/* Home Search Bar */}
-    <label className="input input-lg input-bordered  rounded-full flex items-center gap-2 m-5 ms-2">
+    <label className="input input-lg input-bordered  rounded-full flex items-center gap-2 m-5 ms-2 p-5">
       <input type="text" className="grow " placeholder="Search beverages or foods" />
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-8 opacity-40"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
     </label>
@@ -223,10 +223,27 @@ export default function Homepage() {
         </div>
       }
 
+      {/* CATEGORIES */}
       <h1 className="mt-12 font-[poppins] font-bold text-lg ms-3 mb-3">Categories</h1>
       <CategoriesBar/>
       
+      {/*Featured Beverages*/}
+      <div className="mt-8 flex justify-between w-[450px] ms-5 items-center">
+        <p className="text-lg font-bold">Featured Beverages</p>
+        <p className="text-emerald-700 font-semibold">More</p>
+      </div>
 
+
+      <div className="flex flex-col gap-4 m-3 mt-8">
+        <FeaturedItem/>
+        <FeaturedItem/>
+      </div>
+
+
+
+
+      <div>
+      </div>
 
 
     </div>
