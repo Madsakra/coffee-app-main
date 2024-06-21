@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ body {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+.main-menu-before{
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+    z-index: 1;
+
+    height: 100%;
+    width: 100%;
+    
+}
+
+.main-menu-after{
+
+    animation: 1s ease-out 0s 1 slideInFromRight;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+    z-index: 1;
+
+    top: 22%;
+    left: 58%;
+    rotate: -5deg;
+
+    height: 90%;
+    border-radius: 1rem;
+    border: solid;
+    border-color: gray;
+
+    width: 70%;
+    height: 100%;
+    
+    
+}
+
+.swiper-wrapper{
+  align-items: end;
+ 
+}
+
+
+
+.best-coffee-common{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
