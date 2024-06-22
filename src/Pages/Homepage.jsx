@@ -17,6 +17,7 @@ export default function Homepage() {
   const [hamburgMenu,setHamburgMenu] = useState(false);
   const [loading,setloading] = useState(true);
 
+ 
 
   const toggleTheme = ()=>{
     setTheme(theme==='dark'? 'light':'dark');
@@ -25,9 +26,9 @@ export default function Homepage() {
 
 
   const [bestCoffees,setBestCoffees] = useState([]);
-  
+  const [featured,setFeatured] = useState([]); 
 
-  const getData = async ()=>{
+  const getBestSellers = async ()=>{
 
     const querySnapshot = await getDocs(collection(db, "bestSellers"));
     let temp = [];
@@ -36,12 +37,27 @@ export default function Homepage() {
       temp.push(coffeeData);
     });
     setBestCoffees([...temp]);
-    setloading(false);
+    
+  }
+
+  const getFeatured = async ()=>{
+
+    const querySnapshot = await getDocs(collection(db, "featured"));
+    let temp = [];
+    querySnapshot.forEach((doc) => {
+      const coffeeData = doc.data();
+      temp.push(coffeeData);
+    });
+    setFeatured([...temp]);
+    
   }
 
 
+
   useEffect(()=>{
-    getData();
+    getBestSellers();
+    getFeatured();
+    setloading(false);
   },[])
 
 
@@ -234,12 +250,24 @@ export default function Homepage() {
       </div>
 
 
-      <div className="flex flex-col gap-4 m-3 mt-8">
-        <FeaturedItem/>
-        <FeaturedItem/>
-      </div>
 
 
+      {!loading &&
+      <div className="flex flex-col gap-4 m-3 mt-8 mb-[70px]">
+        {featured.map((item)=>{
+          return <FeaturedItem 
+                  image={item.image}
+                  name={item.name}
+                  price={item.price}
+                  points={item.points}
+          />
+        })}
+
+
+      </div>      
+      
+      
+      }
 
 
       <div>

@@ -9,7 +9,7 @@ export default function RootLayout() {
       
 
         <Outlet/>
-
+        <MyNavbar/>
 
     </div>
   )
