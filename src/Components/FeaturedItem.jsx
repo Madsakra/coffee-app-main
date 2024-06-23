@@ -18,7 +18,7 @@ export default function FeaturedItem(props) {
 
     <div className='flex ms-6 text-lg'>
         <h1 className='font-bold'>$ {props.price}</h1>
-        <h1 className='text-emerald-700 absolute right-2'>{props.points} pts</h1>
+        <h1 className='text-emerald-700 absolute right-0'>{props.points} pts</h1>
     </div>
 
     
