@@ -268,7 +268,7 @@ export default function Homepage() {
       </div>      
       }
 
-      {!hamburgMenu &&  <MyNavbar/>}
+     
      
       <div>
 

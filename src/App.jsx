@@ -9,8 +9,9 @@ import{
 
 import RootLayout from './Layout/RootLayout'
 import Homepage from './Pages/Homepage';
-
-
+import WishList from './Pages/WishList';
+import Cart from './Pages/Cart';
+import Profile from './Pages/Profile'
 
 import './App.css'
 
@@ -20,7 +21,9 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<RootLayout/>}>
         <Route index element={<Homepage/>}/>
-
+        <Route path='/wishlist' element={<WishList/>} />
+        <Route path='/cart' element={<Cart/>} />
+        <Route path='/profile' element={<Profile/>} />
       </Route>
     )
   )
