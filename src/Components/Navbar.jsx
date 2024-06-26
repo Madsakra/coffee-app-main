@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
-
+import { useLocation } from 'react-router-dom';
 
 export default function MyNavbar() {
 
-  const [isHighlighted,setIsHighlighted] = useState(false);
+
 
   const [goHome,setGoHome] = useState(true);
   const [goWishList,setGoWishList] = useState(false);
@@ -18,18 +17,17 @@ export default function MyNavbar() {
 
 
 
-
-  const toggleClass = ()=>{
-    setIsHighlighted(!isHighlighted);
-  }
+  let location = useLocation();
 
   const processToggle =(currentPath)=>{
-    console.log(currentPath);
+    
+ 
     switch(currentPath){
       case "home": setGoHome(true);
                    setGoWishList(false);
                    setGoCart(false);
                    setGoProfile(false);
+                   
                    break;
                   
     case "wishlist":setGoHome(false);
@@ -56,6 +54,12 @@ export default function MyNavbar() {
 
   }
 
+
+  useEffect(()=>{
+
+    let currentPath = location.pathname.replace("/","");
+    processToggle(currentPath);
+  },[])
   
 
 
