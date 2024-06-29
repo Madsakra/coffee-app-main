@@ -27,20 +27,16 @@ export default function WishList() {
 
   return (
     <>
-    <div className='flex justify-between p-5 items-center shadow-md'>
+    <div className='flex justify-between p-5 items-center shadow-md w-[500px] h-[75px] md:w-[1000px]'>
     <div className='flex flex-col'> 
-      <h1 className='font-black text-xl'>Wishlist</h1>
-      <div>
-        
-      </div>
+      <h1 className='font-bold text-lg'>Wishlist</h1>
       <div className='text-xs flex flex-row items-center'>
         
- 
         <p><span className='font-bold'>6</span> items</p>
 
           <div className='w-2 h-2 bg-emerald-700 ms-2 me-2 rotate-45'></div>
 
-        <p className='text-sm'>Total: <span className='font-bold'>$213</span></p>
+        <p className='text-xs'>Total: <span className='font-bold'>$213</span></p>
       </div>
     </div>
 
@@ -49,7 +45,8 @@ export default function WishList() {
       </svg>
     </div>    
     
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 m-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 m-2 md:gap-1 md:w-fit h-[780px] 
+      overflow-y-scroll md:h-fit md:overflow-hidden '>
           {wishlist.map((wish)=>{
 
               return (
