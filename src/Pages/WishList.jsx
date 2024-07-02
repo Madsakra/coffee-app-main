@@ -45,7 +45,7 @@ export default function WishList() {
       </svg>
     </div>    
     
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 m-2 md:gap-1 md:w-fit h-[780px] 
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 m-2 md:gap-1 md:w-fit h-[650px] 
       overflow-y-scroll md:h-fit md:overflow-hidden '>
           {wishlist.map((wish)=>{
 

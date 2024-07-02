@@ -1,6 +1,34 @@
 import CartItem from "../Components/CartItem"
+import { getDocs,collection } from 'firebase/firestore';
+import { db } from '../firebase.config';
+import { useEffect, useState } from "react";
+
 
 export default function Cart() {
+  
+  const [cart,setCart] = useState([]);
+
+
+
+  const getCart = async ()=>{
+    const querySnapshot = await getDocs(collection(db, "Cart"));
+    let temp = [];
+    querySnapshot.forEach((doc) => {
+      const coffeeData = doc.data();
+      temp.push(coffeeData);
+    });
+    setCart([...temp]);
+  }
+
+
+  useEffect(()=>{
+    getCart();
+
+  },[])
+  
+  
+  
+  
   return (
     <div className='flex flex-col'>
       
@@ -38,15 +66,22 @@ export default function Cart() {
           Your Order is eligible for free delivery</p>     
     </div>
 
-    <div className='grid grid-cols-1 w-[500px] h-[600px] shadow overflow-y-scroll'>
-      <CartItem quantity={2}/>
-      <CartItem quantity={10}/>
-      <CartItem quantity={30}/>
-      <CartItem quantity={100}/>
-      <CartItem quantity={2}/>
+    <div className='flex flex-col w-[500px] h-[600px] shadow overflow-y-scroll'>
+
+      {cart.map((item)=>{
+        return (<CartItem name={item.name}
+                          price={item.price}
+                          image={item.image}
+                          reviews={item.reviews}
+                          quantity={item.quantity}/>)
+      })}
+
     </div>
 
-
+    <div className="h-[120px] w-[500px] shadow flex justify-center items-center ">
+      <button className="btn w-[470px] h-16 rounded-full hover:bg-emerald-600
+       bg-emerald-700 text-white text-lg">Proceed to buy ({cart.length} Items)</button>
+    </div>
 
     </div>
   )
