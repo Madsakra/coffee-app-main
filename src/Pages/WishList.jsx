@@ -27,7 +27,7 @@ export default function WishList() {
 
   return (
     <>
-    <div className='flex justify-between p-5 items-center shadow-md w-[500px] h-[75px] md:w-[1000px]'>
+    <div className='flex justify-between p-4 items-center shadow-md w-full '>
     <div className='flex flex-col'> 
       <h1 className='font-bold text-lg'>Wishlist</h1>
       <div className='text-xs flex flex-row items-center'>
@@ -45,8 +45,8 @@ export default function WishList() {
       </svg>
     </div>    
     
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 m-2 md:gap-1 md:w-fit h-[650px] 
-      overflow-y-scroll md:h-fit md:overflow-hidden '>
+      <div className='grid grid-cols-1 w-[100%] justify-items-center mb-[20%] 
+       '>
           {wishlist.map((wish)=>{
 
               return (
@@ -58,8 +58,11 @@ export default function WishList() {
 
 
           })}
-        
+   
+         
       </div>
+          
+
 
     </>
 

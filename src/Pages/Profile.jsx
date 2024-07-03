@@ -5,7 +5,7 @@ import MostOrdered from '../Components/MostOrdered';
 
 export default function Profile() {
   return (
-    <div className='flex flex-col '>
+    <div className='flex flex-col mb-[20%]'>
 
       <div className='profile-head flex m-5 items-center justify-between'>
           <button className='w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center'>
@@ -79,7 +79,7 @@ export default function Profile() {
       <h1 className='ms-4 text-lg font-semibold'>Most ordered</h1>
 
      
-      <div className='h-72 w-[95%] m-3' >
+      <div className='h-[70%] w-[95%] m-3' >
       <MostOrdered/>
       </div>
         
