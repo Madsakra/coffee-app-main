@@ -30,9 +30,9 @@ export default function Cart() {
   
   
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col mb-[100px]'>
       
-    <div className='flex justify-between p-5 items-center shadow w-[500px] h-[75px] md:w-[1000px]'>
+    <div className='flex justify-between p-5 items-center shadow w-full h-[75px] '>
     <div className='flex flex-col'> 
       <h1 className='font-bold text-lg'>My Cart</h1>
       <div className='text-xs flex flex-row items-center'>
@@ -57,7 +57,7 @@ export default function Cart() {
           </button>
     </div>    
 
-    <div className='subtotal-cal flex flex-col p-4 shadow'>
+    <div className='subtotal-cal flex flex-col p-4 shadow w-full'>
         <h1>Subtotal <span className='font-black '> $3,599</span></h1>
         <p className='text-sm flex items-center gap-1 font-semibold text-green-600'>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-8">
@@ -66,8 +66,10 @@ export default function Cart() {
           Your Order is eligible for free delivery</p>     
     </div>
 
-    <div className='flex flex-col w-[500px] h-[600px] shadow overflow-y-scroll'>
 
+    
+    <div className='flex flex-col shadow '>
+      
       {cart.map((item)=>{
         return (<CartItem name={item.name}
                           price={item.price}
@@ -78,10 +80,12 @@ export default function Cart() {
 
     </div>
 
-    <div className="h-[120px] w-[500px] shadow flex justify-center items-center ">
+    {/* <div className="h-[120px] w-screen shadow flex justify-center items-center">
       <button className="btn w-[470px] h-16 rounded-full hover:bg-emerald-600
        bg-emerald-700 text-white text-lg">Proceed to buy ({cart.length} Items)</button>
-    </div>
+    </div> */}
+        <button className="btn w-[full] h-16 rounded-full hover:bg-emerald-600 m-4 mt-10
+       bg-emerald-700 text-white text-lg">Proceed to buy ({cart.length} Items)</button>
 
     </div>
   )

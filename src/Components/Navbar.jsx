@@ -66,7 +66,7 @@ export default function MyNavbar() {
   return (
     <>
     
-      <div className="navbar bg-base-100 justify-around p-2 w-[500px]">
+      <div className="navbar bg-base-100 justify-around p-2 w-fulll">
       
         <Link to="/" relative='path' className={goHome?highlightedClass:nonHighlightedClass} onClick={()=>processToggle("home")}>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-7">
